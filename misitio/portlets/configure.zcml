@@ -1,0 +1,36 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="misitio.portlets">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <genericsetup:registerProfile
+       name="default"
+       title="My Demo Portlet"
+       directory="profiles/default"
+       description="A plone package for commons portlets for misitio website"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+
+     <!-- Register the portlet -->
+
+     <!-- If the portlet has no configurable parameters, you can remove
+          the EditForm declaration in mydemoportlet.py and delete
+          the 'editview' attribute from this statement.
+       -->
+
+     <plone:portlet
+         name="misitio.portlets.MyDemoPortlet"
+         interface=".mydemoportlet.IMyDemoPortlet"
+         assignment=".mydemoportlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="cmf.ManagePortal"
+         renderer=".mydemoportlet.Renderer"
+         addview=".mydemoportlet.AddForm"
+         editview=".mydemoportlet.EditForm"
+         />
+
+</configure>

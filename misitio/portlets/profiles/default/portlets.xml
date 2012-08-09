@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<portlets>
+
+ <!-- Portlet type registrations -->
+
+<portlet
+    addview="misitio.portlets.MyDemoPortlet"
+    title="My Demo Portlet"
+    description="A plone package for commons portlets for misitio website"
+    />
+
+<assignment
+    insert-before="news"
+    manager="plone.rightcolumn"
+    category="context"
+    key="/"
+    type="misitio.portlets.MyDemoPortlet"
+    name="mydemoportlet"
+    visible="1"
+    purge="False" />
+
+</portlets>

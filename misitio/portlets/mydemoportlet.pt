@@ -1,0 +1,38 @@
+<dl class="portlet portletMiDemoPortlet"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    i18n:domain="misitio.portlets">
+
+    <dt class="portletHeader">
+        <span class="portletTopLeft"></span>
+        <center>Contactos</center>
+        <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd" 
+        tal:define="correo view/data/correo">
+        
+        <tal:notcorreo condition="not:correo">
+            <span i18n:translate="not_correo_portlet">Edite las configuraciones de este portlet 
+            <a href="#" 
+               tal:attributes="href string:++contextportlets++plone.rightcolumn/mydemoportlet/edit/">
+               aquí</a></span>
+        </tal:notcorreo>
+        
+        <tal:correo condition="correo">
+            <center>
+            <p>Para mayor información contacte a 
+            <br /><br /><a href="#" 
+               tal:attributes="href string:mailto:${correo}"
+               tal:content="structure view/data/nombre">
+               nombre de contacto</a></p> 
+            </center>
+        </tal:correo>
+    </dd>
+
+    <dd class="portletFooter">
+        <span class="portletBottomLeft"></span>
+        <center><i>Gracias por visitarnos!!!</i></center>
+        <span class="portletBottomRight"></span>
+    </dd>
+
+</dl>
